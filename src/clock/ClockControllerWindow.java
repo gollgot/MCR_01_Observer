@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class ClockControllerWindow extends JFrame {
 
-    private JPanel panel = new JPanel();
     private JButton romanClockBtn = new JButton("Horloge romaine");
     private JButton arabClockBtn = new JButton("Horloge arabe");
     private JButton digitalClockBtn = new JButton("Horloge numérique");
@@ -18,7 +17,7 @@ public class ClockControllerWindow extends JFrame {
     public ClockControllerWindow(){
         // Window settings
         this.setTitle("Clock Controller");
-        this.setSize(200,50);
+        this.setSize(800,200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
@@ -28,6 +27,7 @@ public class ClockControllerWindow extends JFrame {
         layout.setVgap(10);
 
         // Add the grid to the panel
+        JPanel panel = new JPanel();
         panel.setLayout(layout);
 
         // Add buttons into the panel
