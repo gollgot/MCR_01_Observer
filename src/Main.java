@@ -1,6 +1,10 @@
+import clock.ClockControllerWindow;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        ClockControllerWindow controller1 = new ClockControllerWindow();
+
     }
 }
