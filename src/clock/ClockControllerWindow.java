@@ -2,8 +2,12 @@ package clock;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ClockControllerWindow extends JFrame {
+
+    private ClockTimer clockTimer = new ClockTimer();
 
     private JButton romanClockBtn = new JButton("Horloge romaine");
     private JButton arabClockBtn = new JButton("Horloge arabe");
@@ -20,6 +24,16 @@ public class ClockControllerWindow extends JFrame {
         this.setSize(800,200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+
+        digitalClockBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                DigitalClock digitalClock = new DigitalClock(clockTimer);
+                clockTimer.attach(digitalClock);
+                digitalClock.display();
+            }
+        });
+
 
         // Create the grid
         GridLayout layout = new GridLayout(2,4);

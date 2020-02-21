@@ -10,17 +10,22 @@ class ClockTimer implements Subject {
     private Timer timer;
     private ArrayList<Observer> observers;
 
-    private ClockTimer(){
+    ClockTimer(){
         this.observers = new ArrayList<>();
 
         this.timer = new Timer();
-        this.timer.schedule(new TimerTask() {
-            @Override
+
+        TimerTask repeatedTask = new TimerTask() {
             public void run() {
                 setSeconds(seconds + 1);
             }
-        }, 1000);
+        };
+
+        long delay  = 1000L;
+        long period = 1000L;
+        timer.scheduleAtFixedRate(repeatedTask, delay, period);
     }
+
 
     void setSeconds(int seconds) {
         this.seconds = seconds;
