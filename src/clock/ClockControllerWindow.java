@@ -19,21 +19,30 @@ public class ClockControllerWindow extends JFrame {
     private JButton quitBtn = new JButton("Quitter");
 
     public ClockControllerWindow(){
-        // Window settings
-        this.setTitle("Clock Controller");
-        this.setSize(800,200);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
+        linkButtonsAction();
+        displayWindow();
+    }
+
+    private void linkButtonsAction() {
 
         digitalClockBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 DigitalClock digitalClock = new DigitalClock(clockTimer);
+                // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(digitalClock);
                 digitalClock.display();
             }
         });
 
+    }
+
+    private void displayWindow() {
+        // Window settings
+        this.setTitle("Clock Controller");
+        this.setSize(800,200);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
 
         // Create the grid
         GridLayout layout = new GridLayout(2,4);
