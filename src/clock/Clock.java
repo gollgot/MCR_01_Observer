@@ -15,7 +15,7 @@ abstract class Clock implements Observer {
 
     @Override
     public void update() {
-        System.out.println("dedededeedeedede");
+        // Update our seconds from the subject state (seconds)
         this.seconds = this.clockTimer.getSeconds();
     }
 }

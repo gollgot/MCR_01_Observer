@@ -35,6 +35,20 @@ public class ClockControllerWindow extends JFrame {
             }
         });
 
+        startBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                clockTimer.start();
+            }
+        });
+
+        stopBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                clockTimer.pause();
+            }
+        });
+
     }
 
     private void displayWindow() {
