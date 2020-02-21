@@ -15,7 +15,7 @@ public class ClockControllerWindow extends JFrame {
     private JButton mixedClockBtn = new JButton("Horloge mixte");
     private JButton startBtn = new JButton("Démarrer");
     private JButton stopBtn = new JButton("Arreter");
-    private JButton initBtn = new JButton("Réinitialiser");
+    private JButton resetBtn = new JButton("Réinitialiser");
     private JButton quitBtn = new JButton("Quitter");
 
     public ClockControllerWindow(){
@@ -49,6 +49,13 @@ public class ClockControllerWindow extends JFrame {
             }
         });
 
+        resetBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                clockTimer.reset();
+            }
+        });
+
     }
 
     private void displayWindow() {
@@ -74,7 +81,7 @@ public class ClockControllerWindow extends JFrame {
         panel.add(mixedClockBtn);
         panel.add(startBtn);
         panel.add(stopBtn);
-        panel.add(initBtn);
+        panel.add(resetBtn);
         panel.add(quitBtn);
 
         this.setContentPane(panel);

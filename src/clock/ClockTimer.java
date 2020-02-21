@@ -7,19 +7,11 @@ import java.util.TimerTask;
 class ClockTimer implements Subject {
 
     private int seconds; // The subject state
-    private TimerTask repeatedTask;
     private Timer timer;
     private ArrayList<Observer> observers;
 
     ClockTimer(){
         this.observers = new ArrayList<>();
-
-        // Set up the repeated task that will update the subject states (seconds)
-        this.repeatedTask = new TimerTask() {
-            public void run() {
-                setSeconds(seconds + 1);
-            }
-        };
     }
 
 
@@ -34,13 +26,26 @@ class ClockTimer implements Subject {
 
     void start() {
         this.timer = new Timer();
+
+        // Set up the repeated task that will update the subject states (seconds)
+        TimerTask repeatedTask = new TimerTask() {
+            public void run() {
+                setSeconds(seconds + 1);
+            }
+        };
+
         long delay  = 1000L;
         long period = 1000L;
-        timer.scheduleAtFixedRate(repeatedTask, delay, period);
+        this.timer.scheduleAtFixedRate(repeatedTask, delay, period);
     }
 
     void pause() {
-        timer.cancel();
+        this.timer.cancel();
+    }
+
+    void reset() {
+        this.timer = new Timer();
+        this.setSeconds(0);
     }
 
 
