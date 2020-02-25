@@ -14,7 +14,7 @@ class DigitalClock extends Clock {
         JFrame window = new JFrame();
         JPanel panel = new JPanel();
 
-        this.timeLabel.setText("0");
+        this.timeLabel.setText("00h 00m 00s");
         panel.add(this.timeLabel);
 
         window.setTitle("Horloge Arabe");
@@ -31,6 +31,19 @@ class DigitalClock extends Clock {
     public void update() {
         super.update();
         System.out.println("UPDATE");
-        timeLabel.setText(Integer.toString(super.getSeconds()));
+        int currentSeconds = super.getSeconds();
+
+        // Decompose currentSeconds into hours / minutes / seconds
+        int hour = currentSeconds / 3600;
+
+        currentSeconds %= 3600;
+        int minutes = currentSeconds / 60 ;
+
+        currentSeconds %= 60;
+        int seconds = currentSeconds;
+
+        String strLabel = hour + "h " + minutes + "m " + seconds + "s ";
+
+        timeLabel.setText(strLabel);
     }
 }

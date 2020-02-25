@@ -14,7 +14,6 @@ class ClockTimer implements Subject {
         this.observers = new ArrayList<>();
     }
 
-
     void setSeconds(int seconds) {
         this.seconds = seconds;
         notifyObserver();
@@ -44,7 +43,6 @@ class ClockTimer implements Subject {
     }
 
     void reset() {
-        this.timer = new Timer();
         this.setSeconds(0);
     }
 
