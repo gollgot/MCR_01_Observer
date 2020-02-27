@@ -19,16 +19,28 @@ abstract class Clock extends Observer {
         return this.seconds;
     }
 
-    public int getWINDOW_WIDTH() {
+    int getWINDOW_WIDTH() {
         return WINDOW_WIDTH;
     }
 
-    public int getWINDOW_HEIGHT() {
+    int getWINDOW_HEIGHT() {
         return WINDOW_HEIGHT;
     }
 
-    public String getWindowTitle() {
+    String getWindowTitle() {
         return windowTitle;
+    }
+
+    int getDisplayedHours(){
+        return this.seconds / 3600;
+    }
+
+    int getDisplayedMinutes() {
+        return (this.seconds % 3600) / 60;
+    }
+
+    int getDisplayedSeconds(){
+        return (this.seconds % 3600) % 60;
     }
 
     public void update() {

@@ -31,20 +31,7 @@ class DigitalClock extends Clock {
     @Override
     public void update() {
         super.update();
-        System.out.println("UPDATE");
-        int currentSeconds = super.getSeconds();
-
-        // Decompose currentSeconds into hours / minutes / seconds
-        int hour = currentSeconds / 3600;
-
-        currentSeconds %= 3600;
-        int minutes = currentSeconds / 60 ;
-
-        currentSeconds %= 60;
-        int seconds = currentSeconds;
-
-        String strLabel = hour + "h " + minutes + "m " + seconds + "s ";
-
+        String strLabel = super.getDisplayedHours() + "h " + super.getDisplayedMinutes() + "m " + super.getDisplayedSeconds() + "s ";
         timeLabel.setText(strLabel);
     }
 }

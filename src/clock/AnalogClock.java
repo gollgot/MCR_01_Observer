@@ -28,6 +28,8 @@ class AnalogClock extends Clock {
             public void paint(Graphics g) {
                 super.paint(g);
                 g.drawImage(AnalogClock.this.image, 0, 0, null);
+                g.setColor(Color.BLACK);
+                g.drawLine(100, 100, 100, 200);
             }
         };
 
