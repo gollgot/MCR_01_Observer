@@ -76,6 +76,13 @@ public class ClockControllerWindow extends JFrame {
             }
         });
 
+        quitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.exit(0);
+            }
+        });
+
     }
 
     private void displayWindow() {

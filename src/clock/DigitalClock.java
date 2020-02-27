@@ -31,7 +31,16 @@ class DigitalClock extends Clock {
     @Override
     public void update() {
         super.update();
-        String strLabel = super.getDisplayedHours() + "h " + super.getDisplayedMinutes() + "m " + super.getDisplayedSeconds() + "s ";
+        String strLabel = intOnTwoDigits(super.getDisplayedHours()) + "h " + intOnTwoDigits(super.getDisplayedMinutes()) + "m " + intOnTwoDigits(super.getDisplayedSeconds()) + "s ";
         timeLabel.setText(strLabel);
+    }
+
+    /**
+     * Converts an int on a two digits String (6 -> 06, 42 -> 42)
+     * @param value the integer to be converted
+     * @return the String on two digits
+     */
+    private String intOnTwoDigits(int value) {
+        return String.format("%02d", value);
     }
 }
