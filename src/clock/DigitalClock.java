@@ -10,6 +10,7 @@ class DigitalClock extends Clock {
         super(clockTimer);
     }
 
+    @Override
     void display(){
         JFrame window = new JFrame();
         JPanel panel = new JPanel();
@@ -17,7 +18,7 @@ class DigitalClock extends Clock {
         this.timeLabel.setText("00h 00m 00s");
         panel.add(this.timeLabel);
 
-        window.setTitle("Horloge Arabe");
+        window.setTitle("Horloge Numérique");
         window.setSize(300,100);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setLocationRelativeTo(null);

@@ -1,6 +1,9 @@
 package clock;
 
-abstract class Clock implements Observer {
+import javax.swing.*;
+import java.awt.*;
+
+abstract class Clock extends JPanel implements Observer {
 
     private int seconds;
     private ClockTimer clockTimer;
@@ -8,6 +11,8 @@ abstract class Clock implements Observer {
     Clock(ClockTimer clockTimer){
         this.clockTimer = clockTimer;
     }
+
+    abstract void display();
 
     int getSeconds() {
         return this.seconds;
