@@ -5,15 +5,13 @@ abstract class Clock extends Observer {
     private int seconds;
     private ClockTimer clockTimer;
     private String windowTitle;
-    private final int WINDOW_WIDTH = 400;
-    private final int WINDOW_HEIGHT = 400;
+    private final int WINDOW_WIDTH = 350;
+    private final int WINDOW_HEIGHT = 350;
 
     Clock(ClockTimer clockTimer, String windowTitle){
         this.clockTimer = clockTimer;
         this.windowTitle = windowTitle;
     }
-
-    abstract void display();
 
     int getSeconds() {
         return this.seconds;

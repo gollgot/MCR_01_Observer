@@ -31,7 +31,6 @@ public class ClockControllerWindow extends JFrame {
                 DigitalClock digitalClock = new DigitalClock(clockTimer, "Horloge Numérique");
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(digitalClock);
-                digitalClock.display();
             }
         });
 
@@ -41,7 +40,6 @@ public class ClockControllerWindow extends JFrame {
                 AnalogClock arabClock = new AnalogClock(clockTimer, "Horloge Arabe", "assets/arab_clock.jpg");
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(arabClock);
-                arabClock.display();
             }
         });
 
@@ -51,7 +49,6 @@ public class ClockControllerWindow extends JFrame {
                 AnalogClock romanClock = new AnalogClock(clockTimer, "Horloge Romaine", "assets/roman_clock.jpg");
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(romanClock);
-                romanClock.display();
             }
         });
 

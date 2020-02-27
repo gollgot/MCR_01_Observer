@@ -8,10 +8,10 @@ class DigitalClock extends Clock {
 
     DigitalClock(ClockTimer clockTimer, String windowTitle){
         super(clockTimer, windowTitle);
+        this.createWindowAndDisplay();
     }
 
-    @Override
-    void display(){
+    void createWindowAndDisplay(){
         JFrame window = new JFrame();
         JPanel panel = new JPanel();
 

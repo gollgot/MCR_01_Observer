@@ -8,8 +8,8 @@ import java.sql.PreparedStatement;
 class AnalogClock extends Clock {
 
     private Image image;
-    private final int IMG_WIDTH = 400;
-    private final int IMG_HEIGHT = 400;
+    private final int IMG_WIDTH = 300;
+    private final int IMG_HEIGHT = 300;
     private int xNeedleSeconds;
     private int yNeedleSeconds;
     private int xNeedleMinutes;
@@ -27,10 +27,10 @@ class AnalogClock extends Clock {
         this.image = this.image.getScaledInstance(IMG_WIDTH, IMG_HEIGHT, Image.SCALE_SMOOTH);
 
         this.updateNeedlesPositions();
+        this.createWindowAndDisplay();
     }
 
-    @Override
-    void display() {
+    private void createWindowAndDisplay() {
         JFrame window = new JFrame();
 
         // Create an anonymous class to be able to override the paint() method to draw our image / needles
@@ -42,7 +42,7 @@ class AnalogClock extends Clock {
                 Graphics2D g2 = (Graphics2D) g;
 
                 // Draw the image
-                g2.drawImage(AnalogClock.this.image, 0, 0, null);
+                g2.drawImage(AnalogClock.this.image, 0, 0, this);
 
                 // Draw hours needle
                 g2.setColor(Color.BLACK);
