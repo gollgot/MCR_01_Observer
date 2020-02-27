@@ -1,7 +1,7 @@
 package clock;
 
-interface Observer {
+abstract class Observer {
 
-    void update();
+    abstract void update();
 
 }

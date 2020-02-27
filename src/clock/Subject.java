@@ -1,9 +1,27 @@
 package clock;
 
-interface Subject {
+import java.util.ArrayList;
 
-    void attach(Observer o);
-    void detach(Observer o);
-    void notifyObserver();
+abstract class Subject {
+
+    private ArrayList<Observer> observers;
+
+    public Subject() {
+        this.observers = new ArrayList<>();
+    }
+
+    public void attach(Observer o) {
+        this.observers.add(o);
+    }
+
+    public void detach(Observer o) {
+        this.observers.remove(o);
+    }
+
+    public void notifyObservers() {
+        for(Observer o : this.observers){
+            o.update();
+        }
+    }
 
 }

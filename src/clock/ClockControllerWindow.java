@@ -38,10 +38,10 @@ public class ClockControllerWindow extends JFrame {
         arabClockBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ArabianClock arabianClock = new ArabianClock(clockTimer);
+                AnalogClock arabClock = new AnalogClock(clockTimer, "Arab Clock", "assets/clock1.jpg");
                 // Dont forgot to attach the observer to the subject to be able to be notify
-                clockTimer.attach(arabianClock);
-                arabianClock.display();
+                clockTimer.attach(arabClock);
+                arabClock.display();
             }
         });
 
