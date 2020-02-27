@@ -34,7 +34,7 @@ class DigitalClock extends Clock {
         int currentSeconds = super.getSeconds();
 
         // Decompose currentSeconds into hours / minutes / seconds
-        int hour = currentSeconds / 3600;
+        int hours = currentSeconds / 3600;
 
         currentSeconds %= 3600;
         int minutes = currentSeconds / 60 ;
@@ -42,8 +42,17 @@ class DigitalClock extends Clock {
         currentSeconds %= 60;
         int seconds = currentSeconds;
 
-        String strLabel = hour + "h " + minutes + "m " + seconds + "s ";
+        String strLabel = intOnTwoDigits(hours) + "h " + intOnTwoDigits(minutes) + "m " + intOnTwoDigits(seconds) + "s ";
 
         timeLabel.setText(strLabel);
+    }
+
+    /**
+     * Converts an int on a two digits String (6 -> 06, 42 -> 42)
+     * @param value the integer to be converted
+     * @return the String on two digits
+     */
+    private String intOnTwoDigits(int value) {
+        return String.format("%02d", value);
     }
 }
