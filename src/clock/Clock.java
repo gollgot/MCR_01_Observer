@@ -1,6 +1,6 @@
 package clock;
 
-abstract class Clock implements Observer {
+abstract class Clock extends Observer {
 
     private int seconds;
     private ClockTimer clockTimer;
@@ -13,7 +13,6 @@ abstract class Clock implements Observer {
         return this.seconds;
     }
 
-    @Override
     public void update() {
         // Update our seconds from the subject state (seconds)
         this.seconds = this.clockTimer.getSeconds();
