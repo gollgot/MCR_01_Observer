@@ -7,13 +7,11 @@ import java.io.File;
 class AnalogClock extends Clock {
 
     private Image image;
-    private String windowTitle;
     private final int IMG_WIDTH = 200;
     private final int IMG_HEIGHT = 200;
 
     AnalogClock(ClockTimer clockTimer, String windowTitle, String imgPath) {
-        super(clockTimer);
-        this.windowTitle = windowTitle;
+        super(clockTimer, windowTitle);
         // Load the image file
         File file = new File(imgPath);
         this.image = Toolkit.getDefaultToolkit().getImage(file.getAbsolutePath());
@@ -33,8 +31,8 @@ class AnalogClock extends Clock {
             }
         };
 
-        window.setTitle("Horloge Arabe");
-        window.setSize(400,400);
+        window.setTitle(super.getWindowTitle());
+        window.setSize(super.getWINDOW_WIDTH(),super.getWINDOW_HEIGHT());
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setLocationRelativeTo(null);
 
