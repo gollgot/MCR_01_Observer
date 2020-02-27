@@ -28,10 +28,30 @@ public class ClockControllerWindow extends JFrame {
         digitalClockBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                DigitalClock digitalClock = new DigitalClock(clockTimer);
+                DigitalClock digitalClock = new DigitalClock(clockTimer, "Horloge Numérique");
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(digitalClock);
                 digitalClock.display();
+            }
+        });
+
+        arabClockBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                AnalogClock arabClock = new AnalogClock(clockTimer, "Horloge Arabe", "assets/arab_clock.jpg");
+                // Dont forgot to attach the observer to the subject to be able to be notify
+                clockTimer.attach(arabClock);
+                arabClock.display();
+            }
+        });
+
+        romanClockBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                AnalogClock romanClock = new AnalogClock(clockTimer, "Horloge Romaine", "assets/roman_clock.jpg");
+                // Dont forgot to attach the observer to the subject to be able to be notify
+                clockTimer.attach(romanClock);
+                romanClock.display();
             }
         });
 
