@@ -1,5 +1,3 @@
-package clock;
-
 import java.util.ArrayList;
 
 abstract class Subject {

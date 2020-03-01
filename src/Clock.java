@@ -1,32 +1,19 @@
-package clock;
+import javax.swing.*;
 
 abstract class Clock extends Observer {
 
     private int seconds;
     private ClockTimer clockTimer;
     private String windowTitle;
-    private final int WINDOW_WIDTH = 350;
-    private final int WINDOW_HEIGHT = 350;
+    private JPanel panel;
 
     Clock(ClockTimer clockTimer, String windowTitle){
         this.clockTimer = clockTimer;
         this.windowTitle = windowTitle;
     }
 
-    int getSeconds() {
-        return this.seconds;
-    }
-
-    int getWINDOW_WIDTH() {
-        return WINDOW_WIDTH;
-    }
-
-    int getWINDOW_HEIGHT() {
-        return WINDOW_HEIGHT;
-    }
-
-    String getWindowTitle() {
-        return windowTitle;
+    JPanel getPanel() {
+        return this.panel;
     }
 
     int getDisplayedHours(){
@@ -41,8 +28,22 @@ abstract class Clock extends Observer {
         return (this.seconds % 3600) % 60;
     }
 
+    void setPanel(JPanel panel) {
+        this.panel = panel;
+    }
+
     public void update() {
         // Update our seconds from the subject state (seconds)
         this.seconds = this.clockTimer.getSeconds();
+    }
+
+    public void displayOnWindow(){
+        JFrame window = new JFrame();
+        window.setTitle(windowTitle);
+        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        window.setLocationRelativeTo(null);
+        window.add(this.panel);
+        window.pack(); // Window's size will be pack relative to it's preferredSize components.
+        window.setVisible(true);
     }
 }

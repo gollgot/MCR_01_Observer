@@ -1,9 +1,6 @@
-package clock;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.sql.PreparedStatement;
 
 class AnalogClock extends Clock {
 
@@ -17,7 +14,6 @@ class AnalogClock extends Clock {
     private int xNeedleHours;
     private int yNeedleHours;
 
-    private JPanel panel;
 
     AnalogClock(ClockTimer clockTimer, String windowTitle, String imgPath) {
         super(clockTimer, windowTitle);
@@ -27,14 +23,12 @@ class AnalogClock extends Clock {
         this.image = this.image.getScaledInstance(IMG_WIDTH, IMG_HEIGHT, Image.SCALE_SMOOTH);
 
         this.updateNeedlesPositions();
-        this.createWindowAndDisplay();
+        this.loadPanel();
     }
 
-    private void createWindowAndDisplay() {
-        JFrame window = new JFrame();
-
+    private void loadPanel(){
         // Create an anonymous class to be able to override the paint() method to draw our image / needles
-        this.panel = new JPanel(){
+        JPanel panel = new JPanel(){
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
@@ -61,13 +55,20 @@ class AnalogClock extends Clock {
             }
         };
 
-        window.setTitle(super.getWindowTitle());
-        window.setSize(super.getWINDOW_WIDTH(),super.getWINDOW_HEIGHT());
-        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        window.setLocationRelativeTo(null);
+        panel.setPreferredSize(new Dimension(IMG_WIDTH, IMG_HEIGHT));
+        super.setPanel(panel);
+    }
 
-        window.add(panel);
-        window.setVisible(true);
+    public void displayOnWindow() {
+        super.displayOnWindow();
+    }
+
+    public int getImgWidth() {
+        return this.IMG_WIDTH;
+    }
+
+    public int getImgHeight() {
+        return this.IMG_HEIGHT;
     }
 
     @Override
@@ -76,8 +77,8 @@ class AnalogClock extends Clock {
 
         this.updateNeedlesPositions();
 
-        this.panel.revalidate();
-        this.panel.repaint();
+        super.getPanel().revalidate();
+        super.getPanel().repaint();
     }
 
     private void updateNeedlesPositions(){

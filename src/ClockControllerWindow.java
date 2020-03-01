@@ -1,5 +1,3 @@
-package clock;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,11 +5,19 @@ import java.awt.event.ActionListener;
 
 public class ClockControllerWindow extends JFrame {
 
+    // The concrete subject
     private ClockTimer clockTimer = new ClockTimer();
 
-    private JButton romanClockBtn = new JButton("Horloge romaine");
-    private JButton arabClockBtn = new JButton("Horloge arabe");
-    private JButton digitalClockBtn = new JButton("Horloge numérique");
+    private final String ROMAN_CLOCK_TXT = "Horloge romaine";
+    private final String ARAB_CLOCK_TXT = "Horloge arabe";
+    private final String DIGITAL_CLOCK_TXT = "Horloge numérique";
+    private final String ROMAN_CLOCK_IMG_PATH = "assets/roman_clock.jpg";
+    private final String ARAB_CLOCK_IMG_PATH = "assets/arab_clock.jpg";
+
+    // Buttons
+    private JButton romanClockBtn = new JButton(ROMAN_CLOCK_TXT);
+    private JButton arabClockBtn = new JButton(ARAB_CLOCK_TXT);
+    private JButton digitalClockBtn = new JButton(DIGITAL_CLOCK_TXT);
     private JButton mixedClockBtn = new JButton("Horloge mixte");
     private JButton startBtn = new JButton("Démarrer");
     private JButton stopBtn = new JButton("Arreter");
@@ -28,27 +34,70 @@ public class ClockControllerWindow extends JFrame {
         digitalClockBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                DigitalClock digitalClock = new DigitalClock(clockTimer, "Horloge Numérique");
+                DigitalClock digitalClock = new DigitalClock(clockTimer, DIGITAL_CLOCK_TXT);
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(digitalClock);
+                digitalClock.displayOnWindow();
             }
         });
 
         arabClockBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AnalogClock arabClock = new AnalogClock(clockTimer, "Horloge Arabe", "assets/arab_clock.jpg");
+                AnalogClock arabClock = new AnalogClock(clockTimer, ARAB_CLOCK_TXT, ARAB_CLOCK_IMG_PATH);
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(arabClock);
+                arabClock.displayOnWindow();
             }
         });
 
         romanClockBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                AnalogClock romanClock = new AnalogClock(clockTimer, "Horloge Romaine", "assets/roman_clock.jpg");
+                AnalogClock romanClock = new AnalogClock(clockTimer, ROMAN_CLOCK_TXT, ROMAN_CLOCK_IMG_PATH);
                 // Dont forgot to attach the observer to the subject to be able to be notify
                 clockTimer.attach(romanClock);
+                romanClock.displayOnWindow();
+            }
+        });
+
+        mixedClockBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                // Create our clocks
+                AnalogClock arabClock = new AnalogClock(clockTimer, ARAB_CLOCK_TXT, ARAB_CLOCK_IMG_PATH);
+                AnalogClock romanClock = new AnalogClock(clockTimer, ROMAN_CLOCK_TXT, ROMAN_CLOCK_IMG_PATH);
+                DigitalClock digitalClock = new DigitalClock(clockTimer, DIGITAL_CLOCK_TXT);
+
+                // Dont forgot to attach the observer to the subject to be able to be notify
+                clockTimer.attach(arabClock);
+                clockTimer.attach(romanClock);
+                clockTimer.attach(digitalClock);
+
+                // Create the specific window (mixed clock)
+                JFrame window = new JFrame();
+                FlowLayout flowLayout = new FlowLayout(); // flowLayout to be able to have a nice responsive placement
+                window.setLayout(flowLayout);
+
+                // Fetch all clock panel to integrate them into the window
+                int clockImgWidth = arabClock.getImgWidth();
+                int clockImgHeight = arabClock.getImgHeight();
+                JPanel arabPanel = arabClock.getPanel();
+                JPanel romanPanel = romanClock.getPanel();
+                JPanel digitalPanel = digitalClock.getPanel();
+                arabPanel.setPreferredSize(new Dimension(clockImgWidth, clockImgHeight));
+                romanPanel.setPreferredSize(new Dimension(clockImgWidth, clockImgHeight));
+                digitalPanel.setPreferredSize(new Dimension(clockImgWidth, 100));
+
+                // Window settings
+                window.setTitle("Horloge Mixte");
+                window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                window.setLocationRelativeTo(null);
+                window.add(arabPanel);
+                window.add(romanPanel);
+                window.add(digitalPanel);
+                window.pack();
+                window.setVisible(true);
             }
         });
 

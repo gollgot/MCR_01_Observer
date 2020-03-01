@@ -1,6 +1,5 @@
-package clock;
-
 import javax.swing.*;
+import java.awt.*;
 
 class DigitalClock extends Clock {
 
@@ -8,25 +7,20 @@ class DigitalClock extends Clock {
 
     DigitalClock(ClockTimer clockTimer, String windowTitle){
         super(clockTimer, windowTitle);
-        this.createWindowAndDisplay();
+        this.loadPanel();
     }
 
-    void createWindowAndDisplay(){
-        JFrame window = new JFrame();
+    private void loadPanel(){
         JPanel panel = new JPanel();
-
+        panel.setPreferredSize(new Dimension(200,100));
         this.timeLabel.setText("00h 00m 00s");
         panel.add(this.timeLabel);
-
-        window.setTitle(super.getWindowTitle());
-        window.setSize(super.getWINDOW_WIDTH(),super.getWINDOW_HEIGHT());
-        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        window.setLocationRelativeTo(null);
-
-        window.add(panel);
-        window.setVisible(true);
+        super.setPanel(panel);
     }
 
+    public void displayOnWindow(){
+        super.displayOnWindow();
+    }
 
     @Override
     public void update() {
