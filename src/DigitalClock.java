@@ -18,10 +18,6 @@ class DigitalClock extends Clock {
         super.setPanel(panel);
     }
 
-    public void displayOnWindow(){
-        super.displayOnWindow();
-    }
-
     @Override
     public void update() {
         super.update();

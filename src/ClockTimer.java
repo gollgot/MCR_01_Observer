@@ -6,12 +6,12 @@ class ClockTimer extends Subject {
     private int seconds; // The subject state
     private Timer timer;
 
-    void setSeconds(int seconds) {
+    public void setSeconds(int seconds) {
         this.seconds = seconds;
         notifyObservers();
     }
 
-    int getSeconds() {
+    public int getSeconds() {
         return this.seconds;
     }
 

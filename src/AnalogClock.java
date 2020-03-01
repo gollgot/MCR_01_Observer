@@ -14,8 +14,7 @@ class AnalogClock extends Clock {
     private int xNeedleHours;
     private int yNeedleHours;
 
-
-    AnalogClock(ClockTimer clockTimer, String windowTitle, String imgPath) {
+    public AnalogClock(ClockTimer clockTimer, String windowTitle, String imgPath) {
         super(clockTimer, windowTitle);
         // Load the image file
         File file = new File(imgPath);
@@ -57,10 +56,6 @@ class AnalogClock extends Clock {
 
         panel.setPreferredSize(new Dimension(IMG_WIDTH, IMG_HEIGHT));
         super.setPanel(panel);
-    }
-
-    public void displayOnWindow() {
-        super.displayOnWindow();
     }
 
     public int getImgWidth() {

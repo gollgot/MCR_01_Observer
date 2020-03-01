@@ -7,7 +7,7 @@ abstract class Clock extends Observer {
     private String windowTitle;
     private JPanel panel;
 
-    Clock(ClockTimer clockTimer, String windowTitle){
+    public Clock(ClockTimer clockTimer, String windowTitle){
         this.clockTimer = clockTimer;
         this.windowTitle = windowTitle;
     }
