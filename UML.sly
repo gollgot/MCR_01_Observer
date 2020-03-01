@@ -9,7 +9,7 @@
       <child>657</child>
       <parent>1303</parent>
     </inheritance>
-    <association aggregation="NONE" direction="FIRST_TO_SECOND" id="1304" name="&lt;notifies">
+    <association aggregation="NONE" direction="FIRST_TO_SECOND" id="1304" name="&lt;notifie">
       <role componentId="1303" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
@@ -56,11 +56,11 @@
       </role>
     </association>
     <entity entityType="CLASS" id="701" isAbstract="false" name="ClockControllerWindow" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="true" name="ROMAN_CLOCK_TXT" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="true" name="ARAB_CLOCK_TXT" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="true" name="DIGITAL_CLOCK_TXT" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="true" name="ROMAN_CLOCK_IMG_PATH" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="true" name="ARAB_CLOCK_IMG_PATH" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="ROMAN_CLOCK_TXT" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="ARAB_CLOCK_TXT" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="DIGITAL_CLOCK_TXT" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="ROMAN_CLOCK_IMG_PATH" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="ARAB_CLOCK_IMG_PATH" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="romanClockBtn" type="int" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="arabClockBtn" type="int" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="digitalClockBtn" type="JButton" visibility="PRIVATE"/>
@@ -72,7 +72,7 @@
       <method isAbstract="false" isStatic="false" name="linkButtonsAction" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="displayWindow" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
     </entity>
-    <association aggregation="NONE" direction="FIRST_TO_SECOND" id="658" name="observes&gt;">
+    <association aggregation="NONE" direction="FIRST_TO_SECOND" id="658" name="observe&gt;">
       <role componentId="541" name="" visibility="PRIVATE">
         <multiplicity>
           <min>2147483647</min>
@@ -106,10 +106,10 @@
     </inheritance>
     <entity entityType="CLASS" id="541" isAbstract="false" name="Clock" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="seconds" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="false" name="windowTitle" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="windowTitle" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="panel" type="JPanel" visibility="PRIVATE"/>
-      <method isAbstract="false" isStatic="false" name="displayOnWindow" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="update" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="displayOnWindow" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
     <entity entityType="CLASS" id="1" isAbstract="false" name="AnalogClock" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="image" type="Image" visibility="PRIVATE"/>
@@ -152,7 +152,7 @@
       <labelAssociation>
         <x>628</x>
         <y>246</y>
-        <w>65</w>
+        <w>59</w>
         <h>16</h>
       </labelAssociation>
       <roleAssociation>
@@ -216,8 +216,8 @@
         <h>16</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
-        <x>787</x>
-        <y>315</y>
+        <x>779</x>
+        <y>316</y>
         <w>8</w>
         <h>16</h>
       </multipliciteAssociation>
@@ -236,7 +236,7 @@
       <labelAssociation>
         <x>617</x>
         <y>65</y>
-        <w>56</w>
+        <w>50</w>
         <h>16</h>
       </labelAssociation>
       <roleAssociation>
