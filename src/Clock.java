@@ -1,4 +1,8 @@
 import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 abstract class Clock extends Observer {
 
@@ -7,7 +11,7 @@ abstract class Clock extends Observer {
     private String windowTitle;
     private JPanel panel;
 
-    public Clock(ClockTimer clockTimer, String windowTitle){
+    Clock(ClockTimer clockTimer, String windowTitle){
         this.clockTimer = clockTimer;
         this.windowTitle = windowTitle;
     }
@@ -30,6 +34,38 @@ abstract class Clock extends Observer {
 
     void setPanel(JPanel panel) {
         this.panel = panel;
+        // Add a mouse liestener on the fly for the new panel. This way we can start / stop
+        // the timer with a clic into the panel.
+        this.panel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                if(!Clock.this.clockTimer.isRunning()){
+                    Clock.this.clockTimer.start();
+                }else{
+                    Clock.this.clockTimer.pause();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
     }
 
     public void update() {
@@ -37,7 +73,7 @@ abstract class Clock extends Observer {
         this.seconds = this.clockTimer.getSeconds();
     }
 
-    public void displayOnWindow(){
+    void displayOnWindow(){
         JFrame window = new JFrame();
         window.setTitle(windowTitle);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

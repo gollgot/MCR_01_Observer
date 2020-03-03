@@ -5,17 +5,24 @@ class ClockTimer extends Subject {
 
     private int seconds; // The subject state
     private Timer timer;
+    private boolean isRunning;
 
-    public void setSeconds(int seconds) {
+    void setSeconds(int seconds) {
         this.seconds = seconds;
         notifyObservers();
     }
 
-    public int getSeconds() {
+    int getSeconds() {
         return this.seconds;
     }
 
+    boolean isRunning() {
+        return isRunning;
+    }
+
     void start() {
+        this.isRunning = true;
+
         this.timer = new Timer();
 
         // Set up the repeated task that will update the subject states (seconds)
@@ -31,6 +38,7 @@ class ClockTimer extends Subject {
     }
 
     void pause() {
+        this.isRunning = false;
         this.timer.cancel();
     }
 
