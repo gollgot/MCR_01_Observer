@@ -27,7 +27,8 @@ class AnalogClock extends Clock {
         this.loadPanel();
     }
 
-    private void loadPanel(){
+    @Override
+    void loadPanel(){
         // Create an anonymous class to be able to override the paint() method to draw our image / needles
         JPanel panel = new JPanel(){
             @Override
@@ -60,10 +61,18 @@ class AnalogClock extends Clock {
         super.setPanel(panel);
     }
 
+    /**
+     * Img Width getter
+     * @return The image width
+     */
     int getImgWidth() {
         return this.IMG_WIDTH;
     }
 
+    /**
+     * Img Height getter
+     * @return The image height
+     */
     int getImgHeight() {
         return this.IMG_HEIGHT;
     }
@@ -78,6 +87,9 @@ class AnalogClock extends Clock {
         super.getPanel().repaint();
     }
 
+    /**
+     * Update all the needles position relative to the clock image
+     */
     private void updateNeedlesPositions(){
         this.xNeedleSeconds = (int) (Math.cos(super.getDisplayedSeconds() * 3.14f / 30 - 3.14f / 2) * (IMG_WIDTH * 0.4) + IMG_WIDTH / 2);
         this.yNeedleSeconds = (int) (Math.sin(super.getDisplayedSeconds() * 3.14f / 30 - 3.14f / 2) * (IMG_WIDTH * 0.4) + IMG_WIDTH / 2);

@@ -31,6 +31,9 @@ public class ClockControllerWindow extends JFrame {
         displayWindow();
     }
 
+    /**
+     * Link all buttons with their own ActionListener
+     */
     private void linkButtonsAction() {
 
         digitalClockBtn.addActionListener(new ActionListener() {
@@ -133,6 +136,9 @@ public class ClockControllerWindow extends JFrame {
 
     }
 
+    /**
+     * Display the window
+     */
     private void displayWindow() {
         // Window settings
         this.setTitle("clock.Clock Controller");
