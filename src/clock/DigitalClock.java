@@ -12,7 +12,8 @@ class DigitalClock extends Clock {
         this.loadPanel();
     }
 
-    private void loadPanel(){
+    @Override
+    void loadPanel(){
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(200,100));
         this.timeLabel.setText("00h 00m 00s");
