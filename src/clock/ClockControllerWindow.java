@@ -1,3 +1,5 @@
+package clock;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -133,7 +135,7 @@ public class ClockControllerWindow extends JFrame {
 
     private void displayWindow() {
         // Window settings
-        this.setTitle("Clock Controller");
+        this.setTitle("clock.Clock Controller");
         this.setSize(800,200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);

@@ -1,6 +1,9 @@
+package clock;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import ObserverPattern.Observer;
 
 abstract class Clock extends Observer {
 

@@ -23,18 +23,18 @@
         </multiplicity>
       </role>
     </association>
-    <entity entityType="CLASS" id="1303" isAbstract="true" name="Subject" visibility="PUBLIC">
+    <entity entityType="CLASS" id="1303" isAbstract="true" name="ObserverPattern.Subject" visibility="PUBLIC">
       <method isAbstract="true" isStatic="false" name="attach" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="o" type="Observer"/>
+        <variable const="false" name="o" type="ObserverPattern.Observer"/>
       </method>
       <method isAbstract="true" isStatic="false" name="detach" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="o" type="Observer"/>
+        <variable const="false" name="o" type="ObserverPattern.Observer"/>
       </method>
       <method isAbstract="true" isStatic="false" name="notifyObservers" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="o" type="Observer"/>
+        <variable const="false" name="o" type="ObserverPattern.Observer"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="1302" isAbstract="false" name="DigitalClock" visibility="PUBLIC">
+    <entity entityType="CLASS" id="1302" isAbstract="false" name="clock.DigitalClock" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="timeLabel" type="JLabel" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="loadPanel" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="intOnTwoDigits" returnType="String" view="DEFAULT" visibility="PUBLIC">
@@ -55,7 +55,7 @@
         </multiplicity>
       </role>
     </association>
-    <entity entityType="CLASS" id="701" isAbstract="false" name="ClockControllerWindow" visibility="PUBLIC">
+    <entity entityType="CLASS" id="701" isAbstract="false" name="clock.ClockControllerWindow" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="true" name="ROMAN_CLOCK_TXT" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="true" name="ARAB_CLOCK_TXT" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="true" name="DIGITAL_CLOCK_TXT" type="String" visibility="PRIVATE"/>
@@ -86,7 +86,7 @@
         </multiplicity>
       </role>
     </association>
-    <entity entityType="CLASS" id="657" isAbstract="false" name="ClockTimer" visibility="PUBLIC">
+    <entity entityType="CLASS" id="657" isAbstract="false" name="clock.ClockTimer" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="seconds" type="int" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="timer" type="Timer" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="start" returnType="void" view="DEFAULT" visibility="PACKAGE"/>
@@ -97,21 +97,21 @@
       <child>541</child>
       <parent>647</parent>
     </inheritance>
-    <entity entityType="CLASS" id="647" isAbstract="true" name="Observer" visibility="PUBLIC">
+    <entity entityType="CLASS" id="647" isAbstract="true" name="ObserverPattern.Observer" visibility="PUBLIC">
       <method isAbstract="true" isStatic="false" name="update" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
     <inheritance id="638">
       <child>1</child>
       <parent>541</parent>
     </inheritance>
-    <entity entityType="CLASS" id="541" isAbstract="false" name="Clock" visibility="PUBLIC">
+    <entity entityType="CLASS" id="541" isAbstract="false" name="clock.Clock" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="seconds" type="int" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="windowTitle" type="String" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="false" name="panel" type="JPanel" visibility="PRIVATE"/>
       <method isAbstract="false" isStatic="false" name="update" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="displayOnWindow" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
-    <entity entityType="CLASS" id="1" isAbstract="false" name="AnalogClock" visibility="PUBLIC">
+    <entity entityType="CLASS" id="1" isAbstract="false" name="clock.AnalogClock" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="image" type="Image" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="true" name="IMG_WIDTH" type="int" visibility="PRIVATE"/>
       <attribute const="false" defaultValue="" isStatic="true" name="IMG_HEIGHT" type="int" visibility="PRIVATE"/>
