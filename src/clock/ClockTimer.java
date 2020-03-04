@@ -1,3 +1,7 @@
+package clock;
+
+import ObserverPattern.Subject;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
