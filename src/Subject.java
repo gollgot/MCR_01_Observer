@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-abstract class Subject {
+public abstract class Subject {
 
     private ArrayList<Observer> observers;
 
